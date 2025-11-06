@@ -1,0 +1,55 @@
+<header role="banner" class="header" id="header">
+      <h1 class="sr-only sr-site-name">{{ site.title }}</h1>
+      <a href="#main-content" class="sr-only sr-only-focusable"><span class="hide-on-focus">Off screen: </span>Skip to content</a>
+      <a href="#edit-search-keys" class="sr-only sr-only-focusable"><span class="hide-on-focus">Off screen: </span>Skip to search</a>
+      <div class="header-container container">
+        
+        <div class="site-branding">
+          <div class="container">
+            <div class="row">
+              <div class="site-info">
+                <div class="site-name">
+                  <a href="{{ '/' | relative_url }}" title="Home" rel="home">{{ site.title }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nav aria-label="site" class="main-menu">
+          <h2 class="sr-only">Main Menu</h2>
+          <div class="container navbar-expand-lg">
+            <button class="toggle-mobile-menu unbutton" type="button" data-toggle="collapse" data-target="#menu-container"
+              aria-controls="menu-container" aria-expanded="false" aria-label="Menu">
+              <span class="toggle-mobile-menu-icon">
+                <span class="toggle-mobile-menu-title">Menu</span>
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </span>
+            </button>
+
+            <div id="menu-container" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav main" role="list">
+                {% assign current_path = page.url | default: page.permalink %}
+                {% for item in site.data.navigation.main %}
+                  <li class="nav-item{% if current_path == item.url %} active{% endif %}">
+                    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+
+              <div class="utility-menu">
+                <ul class="nav navbar-nav utility-nav">
+                  {% for item in site.data.navigation.utility %}
+                    <li class="nav-item">
+                      <a href="{{ item.url }}" class="nav-link utility-link"{% if item.external %} target="_blank" rel="noopener"{% endif %}>{{ item.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+
+      </div>
+    </header>

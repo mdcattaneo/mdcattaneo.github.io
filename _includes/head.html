@@ -1,0 +1,16 @@
+    <meta charset="utf-8" />
+    <meta name="description" content="{{ page.meta_description | default: site.description }}" />
+    <link rel="canonical" href="{{ page.canonical | default: page.url | relative_url }}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:description" content="{{ page.meta_description | default: site.description }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:widgets:csp" content="on" />
+    <meta name="Generator" content="Jekyll" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" media="all" href="{{ 'assets/css/styles.css' | relative_url }}" />
+    <link rel="stylesheet" media="all" href="{{ 'assets/css/mystyles.css' | relative_url }}" />
+    <link rel="icon" href="{{ 'assets/images/pu-logo.svg' | relative_url }}" />

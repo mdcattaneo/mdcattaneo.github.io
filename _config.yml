@@ -1,0 +1,34 @@
+title: "Matias D. Cattaneo"
+description: ""
+url: ""
+baseurl: "/"
+markdown: kramdown
+permalink: ":basename:output_ext"
+theme: null
+
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/
+  - Dockerfile
+  - environment.yml
+  - scripts/
+  - .github/
+  - .vscode/
+  - .DS_Store
+  - .gitignore
+  - .gitattributes
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default

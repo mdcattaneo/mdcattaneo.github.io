@@ -1,0 +1,30 @@
+main:
+  - title: Publications
+    url: /publications/
+  - title: Research
+    url: /research/
+  - title: Software
+    url: /software/
+  - title: Students
+    url: /students/
+  - title: Teaching
+    url: /teaching/
+  - title: Short Courses
+    url: /short-courses/
+  - title: Talks
+    url: /talks/
+  - title: Service
+    url: /service/
+utility:
+  - title: CV
+    url: https://cattaneo.princeton.edu/cv/cattaneo-cv.pdf
+    external: true
+  - title: Google Scholar
+    url: https://scholar.google.com/citations?user=TNdmZVEAAAAJ&hl=en
+    external: true
+  - title: Github
+    url: https://github.com/mdcattaneo
+    external: true
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/matias-d-cattaneo
+    external: true

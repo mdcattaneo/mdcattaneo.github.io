@@ -1,0 +1,168 @@
+/* Styles added to facilitate a move from Princeton Site Builder to Github */
+
+.name-under-pic {
+  /* Space image and name */
+  margin-top: 25px;
+}
+@media (max-width: 61.94rem) {
+/* Adjust padding for mobile menu toggle in specific fontsets */  
+  .fontset1 .toggle-mobile-menu, .fontset3 .toggle-mobile-menu, .fontset4 .toggle-mobile-menu {
+    padding-right: 14px;
+  }
+}
+
+
+@media(min-width: 640px) {
+  .layout-block-padding-medium .layout .layout__region:not(:only-child) {
+  /* Margin between the left sidebar and main content on wide screens */
+    margin-right: 30px;
+  }
+}
+
+:root {
+  /* Adjustable site gutters for key layout sections */
+  --layout-max-width: 1520px;
+  --layout-side-gutter: 20px;
+}
+
+/* Maintain full-width regions while keeping inner content off edges */
+#header,
+#main,
+#footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: max(
+    var(--layout-side-gutter),
+    calc((100vw - var(--layout-max-width)) / 2)
+  );
+}
+
+/* Main link color */
+.node a {
+  color: rgb(3, 42, 112);
+}
+
+/* Padding around main menu links */
+.main-menu a {
+  padding: 0.75rem 0rem;
+}
+
+.container .navbar-expand-lg {
+  pad: 0;
+}
+
+/*
+ * Header Styles for Wide Displays
+ * These styles apply only to viewports 992px and wider,
+ * respecting your breakpoint requirement.
+ */
+@media (min-width: 992px) {
+
+  /* Req 1, 2, 3, 4: Header position, size, and color */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* A high z-index to stay on top of page content */
+    background-color: #000;
+    color: #fff;
+  }
+
+  /* Req 4: Default link color */
+  .header a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Add a simple hover/focus state for links */
+  .header a:hover,
+  .header a:focus {
+    color: #ccc;
+    text-decoration: underline;
+  }
+
+  /*
+   * Main Header Layout (Flexbox)
+   */
+
+  /* 1. Use flexbox to separate Brand (left) from Nav (right) */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    /* Req 5: Aligns both flex items to the bottom edge */
+    align-items: flex-end;
+  }
+
+  .site-name a {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+  
+  /* Don't underline the main site title on hover */
+  .site-name a:hover,
+  .site-name a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Hide the mobile menu button on wide screens */
+  .toggle-mobile-menu {
+    display: none;
+  }
+
+  /*
+   * Navigation Menu Layout (Right Side)
+   */
+
+  /* 2. This is the container for *both* menus (main and utility) */
+  /* We override Bootstrap's default row layout */
+  #menu-container.navbar-collapse {
+    display: flex !important; /* Ensure it's a flex container */
+    flex-grow: 0; /* Don't let it grow to fill space */
+    flex-basis: auto;
+    /* This is the key: stack menus vertically, in reverse order */
+    flex-direction: column-reverse;
+    /* Req 6 & 7: Aligns both stacked menus to the right */
+    align-items: flex-end;
+  }
+
+  /* 3. Ensure the *items inside* each menu are horizontal */
+  .main-menu ul.nav,
+  .utility-menu ul.nav {
+    display: flex;
+    flex-direction: row; /* Menus themselves are horizontal lists */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1rem; 
+  }
+
+}
+
+.utility-nav {
+  /* This creates a 1rem space horizontally between each flex item (the LIs) */
+  gap: 1rem;
+}
+
+.page-title {
+ /* Hides page titles visually but keeps it for screen readers */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.fontset #header .main .nav-item a {
+  /* Removes underline from main menu links */
+  text-decoration: none;
+}
+
+.flavor2 #footer {
+  padding-bottom: 50px;
+}
