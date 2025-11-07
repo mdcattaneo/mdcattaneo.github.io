@@ -3499,7 +3499,7 @@ body.with-horizontal-jlm .jump-link-anchor {
     position: relative;
     }
 .sidebar-first .jump-link-menu ul li a:hover, .sidebar-first .jump-link-menu ul li a:focus {
-    text-decoration: underline;
+    text-decoration: none;
     }
 .sidebar-first .jump-link-menu ul li a.active:before {
     content: "";
