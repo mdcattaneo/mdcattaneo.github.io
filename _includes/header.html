@@ -1,6 +1,9 @@
 <header role="banner" id="header">
 <div class="container">
+  <div class="site-title">
   <h1><a href="{{ '/' | relative_url }}" title="Home" rel="home">{{ site.title }}</a></h1>
+  </div>
+  <div class="navigation">
   <nav aria-label="site">
     <ul role="list" class="main-menu">
     {% assign current_path = page.url | default: page.permalink %}
@@ -18,5 +21,6 @@
     {% endfor %}
     </ul>
   </nav>
+  </div>
 </div>
 </header>

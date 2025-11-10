@@ -1,38 +1,34 @@
 /* ==================== */
-/* Styles               */
+/* Page-wide Styles     */
 /* ==================== */
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 html {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  font-family: sofia-pro, sans-serif;
+  scroll-padding-top: 120px; /* To offset for sticky header when using anchor links */
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "p22-mackinac", Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 16px;
   line-height: 1.6;
   color: #333;
   background: #fff;
 }
 
-header, main, footer{
-  padding-inline: 48px;
-}
-
 .container{
-  display: flex;
-  max-width: 1440px;
+  max-width: 1440px; /* Max width of content area */
+  margin: 0 auto;
+  padding-inline: 25px; /* Horizontal padding for content area */ 
 }
 
 /* ==================== */
-/* Layout Variables */
+/* Layout Variables     */
 /* ==================== */
 
 :root {
@@ -43,7 +39,7 @@ header, main, footer{
 }
 
 /* ==================== */
-/* Header */
+/* Header               */
 /* ==================== */
 
 header {
@@ -54,36 +50,11 @@ header {
   padding-bottom: 5px;
 }
 
-@media (min-width: 992px) {
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1030;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  body {
-    padding-top: 120px; /* Prevent content from hiding under fixed header */
-  }
-
-  header nav {
-    flex-direction: column-reverse;
-    align-items: flex-end;
-  }
-}
-
-header {
-  font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-header h1 {
+header h1 { /* Site title */
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  padding: 1rem 0 0.5rem;
+  padding: 30px 0 0.5rem; /* Adjusted padding of site title for better alignment */
 }
 
 header h1 a {
@@ -96,17 +67,47 @@ header h1 a:hover {
   text-decoration: none;
 }
 
+/* This is the base rule for the nav, which works for mobile-first */
 header nav {
   display: flex;
   gap: 0.5rem;
 }
 
-/* Mobile: natural order (main menu first, utility second) */
+/* Mobile: main menu first, utility second */
 @media (max-width: 991px) {
   header nav {
     flex-direction: column;
   }
 }
+
+@media (min-width: 992px) { /* On desktop: stack menus in column-reverse */
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Navigation children in column-reverse */
+  header nav {
+    display: flex; 
+    flex-direction: column-reverse; /* Stack menus vertically, utility on top */
+    align-items: flex-end; 
+  }
+
+
+  /* Add a small gap between the two stacked menus */
+  header .main-menu {
+     margin-top: 0.5em;
+  }
+}
+
 
 header ul {
   list-style: none;
@@ -151,25 +152,26 @@ main {
   padding-bottom: 2rem;
 }
 
-/* Home page layout - only applies when aside exists */
-main:has(aside) {
+body.home main .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* This is the mobile-first (stacked) default */
   gap: 2rem;
 }
 
-@media (min-width: 640px) {
-  main:has(aside) {
+@media (min-width: 992px) {
+
+  body.home main .container {
     flex-direction: row;
     gap: 30px;
+    padding-top: 25px;
   }
 
-  main:has(aside) > aside {
-    flex: 0 0 25%;
+  body.home main .container > aside {
+    flex: 0 0 30%;
   }
 
-  main:has(aside) > article {
-    flex: 0 0 calc(75% - 30px);
+  body.home main .container > article {
+    flex: 0 0 calc(70% - 30px);
   }
 }
 
@@ -180,7 +182,7 @@ main a {
 /* ==================== */
 /* Typography */
 /* ==================== */
-
+/* ... (Rest of your CSS is unchanged) ... */
 h1, h2, h3, h4, h5, h6 {
   font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
@@ -333,15 +335,18 @@ footer {
   color: #fff;
   width: 100%;
   margin-top: 3rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: start;
 }
 
-@media (min-width: 768px) {
-  footer {
-    grid-template-columns: 1fr 1fr 1fr;
+footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media (min-width: 992px) {
+  footer .container {
+    flex-direction: row; /* Align children horizontally */
+    justify-content: space-between; /* Push children to opposite ends */
+    align-items: center; /* Vertically center them */
   }
 }
 
@@ -360,37 +365,4 @@ footer p {
 footer img {
   padding-top: 15px;
   max-width: 200px;
-  margin-left: auto;
-}
-
-@media (min-width: 768px) {
-  footer > :last-child {
-    grid-column: 3;
-    text-align: right;
-  }
-}
-
-/* ==================== */
-/* Utilities */
-/* ==================== */
-
-.sr-only,
-.visually-hidden {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.hidden {
-  display: none;
 }
