@@ -1,7 +1,7 @@
 title: "Matias D. Cattaneo"
 description: ""
 url: ""
-baseurl: "/"
+baseurl: ""
 markdown: kramdown
 permalink: ":basename:output_ext"
 theme: null
@@ -25,6 +25,12 @@ exclude:
   - .DS_Store
   - .gitignore
   - .gitattributes
+  - venv/
+  - test_visual_comparison.py
+  - requirements.txt
+  - run_tests_simple.sh
+  - test_results/
+  - .pytest_cache/
 
 defaults:
   - scope:

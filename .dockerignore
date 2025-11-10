@@ -1,7 +1,0 @@
-# Prevent large or generated files from bloating Docker build context
-.git
-_site
-.bundle
-vendor
-node_modules
-.DS_Store

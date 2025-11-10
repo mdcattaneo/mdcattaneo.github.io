@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+<html lang="en" dir="ltr">
   <head>
 {% include head.html %}
-{% capture default_drupal_settings %}{"path":{"baseUrl":"/","pathPrefix":"","currentPath":"node/41","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"gtag":{"tagId":"G-1GCMYCJGED","consentMode":false,"otherIds":[],"events":[],"additionalConfigInfo":{"cookie_domain":"none"}},"ajaxPageState":{"libraries":"eJxtk-GSozAIx1_IrjPt7dy9DYMJGrZJcEJs6z79Ed1re7v9oIY_EH6BiKpUgfMHuSqld6pv6JykJB4rwR9IlBfgSknhyjXIUuFacO7wZ6KlzYVUQSu78wqB0FN5FTlKSWiak2zBhV9uZwg8ruBpxCVWiJzP0PanXLGy5Fc5F9YFY7Ta7AnoVqlkjHsuZ88OLVI7Fy137QdU-rdOBo4T3X1ZvPmkUO_LMmPcmHchN_rIn9QZCtcVKA3ke4fzhjWJTJGg4tRP9vpuv-EH3rpGNC9lFqWeM9duVsBIpWq_f5rQ-PpB5HywXiyR7lobyoFywOyswaa6M3m2o4Gz09uM-u_CFtTgncSIsxqPdQeUsLhg62LzLXShVvw5dklZ7_ZXRQ-juOUhbxYOdsaAGmDk29MeU5QB493cJjFQwAvLIyjK1C7W5ly0zSzR3fkfY-ApRHvqU4kaCpGxwukEp1_2fniu0vTjO_x-b6K6IBHLF9RB62olp-apPFHp0ctAo-S9_bu2mVSPP5TTQ9lHvCcqRbuPR1BOc2z0z2anq9q_tN28vz36XcM","theme":"ps_scholar","theme_token":null},"ajaxTrustedUrl":[],"linkpurpose":{"domain":"https://cattaneo.princeton.edu","ignore":"#toolbar-administration a, .princeton-branding a, .copyright a, .block-ps-social a","noIconOnImages":true,"purposeDocument":true,"purposeDocumentMessage":"Link downloads document","purposeDownload":true,"purposeDownloadMessage":"Link downloads file","purposeApp":true,"purposeAppMessage":"Link opens app","purposeExternal":true,"purposeExternalMessage":"Link is external","purposeMail":true,"purposeMailMessage":"Link sends email","purposeTel":true,"purposeTelMessage":"Link opens phone app","purposeNewWindow":true,"purposeNewWindowMessage":"Link opens in new window","css_url":"/modules/contrib/linkpurpose"},"all_documents_new_window":false,"select2_simple":{"selector":".node-form select:not(.disable-select2,[name$='[actions][bundle]'],.ui-timepicker-select,[name*='field_ps_timeline_feature_items']),.select2-form select[multiple],form.layout-builder-configure-block select[multiple]"},"user":{"uid":0,"permissionsHash":"1d15cea2f6848b75106d5a74bf90f4b771ee183c685c14420ba6d067b6bb507c"}}{% endcapture %}
-  <script type="application/json" data-drupal-selector="drupal-settings-json">{{ page.drupal_settings | default: default_drupal_settings | strip }}</script>
   </head>
-  <body class="{{ page.body_class | default: 'front page-node-41 content-type-ps-basic-page flavor2 fontset3 sticky-main-menu layout-block-padding-medium layout-above-section-spacing-none layout-below-section-spacing-medium theme--luna fontset menu1 menu-logo--inline' }}">
-    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
-      <div class="page page-container">
+  <body>
 {% include header.html %}
-        <div id="main" class="main-container">
-          {{ content }}
-        </div>
+<main id="main-content">
+<div class="container">
+  {{ content }}
+</div>	
+</main>
 {% include footer.html %}
-      </div>
-    </div>
-    <span id="ps-current-username" data-username=""></span>
-{% include scripts.html %}
   </body>
 </html>

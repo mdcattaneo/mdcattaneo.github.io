@@ -1,2 +1,4 @@
 url: "http://localhost:4000"
 baseurl: ""
+# Note: Empty baseurl causes CSS to use absolute paths like /assets/css/styles.css
+# which don't work with file:// protocol testing. For production, use baseurl: "/cattaneo"
