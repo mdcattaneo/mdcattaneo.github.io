@@ -212,7 +212,7 @@ header h1 a:hover {
 
   /* Add a small gap between the two stacked menus */
   header .main-menu {
-     margin-top: 0.5em;
+    margin-top: 0.5em;
   }
 
   header ul {
