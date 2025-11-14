@@ -67,25 +67,128 @@ header h1 a:hover {
   text-decoration: none;
 }
 
-/* This is the base rule for the nav, which works for mobile-first */
-header nav {
-  display: flex;
-  gap: 0.5rem;
+/* Hide the checkbox toggle input */
+.menu-toggle {
+  display: none; /* CSS-only menu using checkbox hack */
 }
 
-/* Mobile: main menu first, utility second */
+/* Mobile menu styles (< 992px) */
 @media (max-width: 991px) {
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow navigation to wrap to full width */
+  }
+
+  /* MENU label in top-right corner */
+  .menu-label {
+    order: 2; /* Position after site title */
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em; /* All-caps MENU link */
+    padding: 0.5rem 0;
+    user-select: none;
+  }
+
+  .menu-label:hover {
+    color: #ccc; /* Hover effect */
+  }
+
+  /* Hide navigation by default on mobile */
+  .navigation {
+    display: none;
+    order: 3; /* Place below header */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #121212; /* Overlay background */
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 2rem; /* Padding for overlay content */
+  }
+
+  /* Show navigation when checkbox is checked */
+  .menu-toggle:checked ~ .navigation {
+    display: block; /* Show overlay menu */
+  }
+
+  /* Close button in top-right of overlay */
+  .menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .menu-close:hover {
+    color: #ccc; /* Hover effect for close button */
+  }
+
+  /* Vertical menu layout on mobile */
   header nav {
+    display: flex;
     flex-direction: column;
+    gap: 2rem;
+  }
+
+  header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Vertical menu items */
+    gap: 0;
+  }
+
+  header li {
+    border-bottom: 1px solid #333; /* Separator between items */
+  }
+
+  header li:last-child {
+    border-bottom: none; /* Remove border from last item */
+  }
+
+  header a {
+    display: block;
+    padding: 1rem 0; /* Larger touch targets */
+    font-size: 18px;
+  }
+
+  /* Main menu first, then utility menu on mobile */
+  .main-menu {
+    order: 1; /* Main menu appears first */
+  }
+
+  .utility-menu {
+    order: 2; /* Utility menu appears second */
+    margin-top: 1rem;
   }
 }
 
-@media (min-width: 992px) { /* On desktop: stack menus in column-reverse */
+/* Desktop menu styles (>= 992px) */
+@media (min-width: 992px) {
   header {
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1030;
+  }
+
+  /* Hide MENU label and close button on desktop */
+  .menu-label,
+  .menu-close {
+    display: none; /* Desktop uses horizontal navigation */
   }
 
   header .container {
@@ -94,30 +197,33 @@ header nav {
     align-items: center;
   }
 
-  /* Navigation children in column-reverse */
-  header nav {
-    display: flex; 
-    flex-direction: column-reverse; /* Stack menus vertically, utility on top */
-    align-items: flex-end; 
+  .navigation {
+    display: block; /* Always show on desktop */
   }
 
+  /* Navigation children in column-reverse */
+  header nav {
+    display: flex;
+    flex-direction: column-reverse; /* Stack menus vertically, utility on top */
+    align-items: flex-end;
+  }
 
   /* Add a small gap between the two stacked menus */
   header .main-menu {
      margin-top: 0.5em;
   }
+
+  header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Horizontal layout on desktop */
+  }
 }
 
-
-header ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
+/* Link styles (both mobile and desktop) */
 header a {
   color: #fff;
   text-decoration: none;
