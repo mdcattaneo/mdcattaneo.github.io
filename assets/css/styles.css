@@ -14,11 +14,12 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #333;
   background: #fff;
+  min-width: 480px; /* Prevent page from contracting below 480px on narrow screens */
 }
 
 .container{
@@ -51,10 +52,11 @@ header {
 }
 
 header h1 { /* Site title */
+  font-family: sofia-pro, sans-serif; /* Ensure consistent font on all screen sizes */
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  padding: 30px 0 0.5rem; /* Adjusted padding of site title for better alignment */
+  padding: 25px 0 0.5rem; /* Adjusted padding of site title for better alignment */
 }
 
 header h1 a {
@@ -81,15 +83,16 @@ header h1 a:hover {
     flex-wrap: wrap; /* Allow navigation to wrap to full width */
   }
 
-  /* MENU label in top-right corner */
+  /* MENU label in top-right corner - matches site-title styling */
   .menu-label {
     order: 2; /* Position after site title */
     color: #fff;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.1em; /* All-caps MENU link */
-    padding: 0.5rem 0;
+    font-family: sofia-pro, sans-serif; /* Match site-title font */
+    font-size: 32px; /* Match site-title size */
+    font-weight: 700; /* Match site-title weight */
+    letter-spacing: normal; /* Match site-title */
+    padding: 25px 0 0.5rem; /* Match site-title padding */
     user-select: none;
   }
 
@@ -162,7 +165,6 @@ header h1 a:hover {
   header a {
     display: block;
     padding: 1rem 0; /* Larger touch targets */
-    font-size: 18px;
   }
 
   /* Main menu first, then utility menu on mobile */
@@ -261,23 +263,25 @@ main {
 body.home main .container {
   display: flex;
   flex-direction: column; /* This is the mobile-first (stacked) default */
-  gap: 2rem;
+  gap: 25px;
+  padding-top: 25px; /* Add spacing on narrow screens */
 }
 
 @media (min-width: 992px) {
 
   body.home main .container {
     flex-direction: row;
-    gap: 30px;
+    gap: 25px;
     padding-top: 25px;
   }
 
   body.home main .container > aside {
-    flex: 0 0 30%;
+    flex: 0 0 25%;
+    padding-top: 7px;
   }
 
   body.home main .container > article {
-    flex: 0 0 calc(70% - 30px);
+    flex: 0 0 calc(75% - 25px);
   }
 }
 
@@ -452,7 +456,8 @@ footer .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem; /* Reduced gap on narrow screens */
+  padding-bottom: 1rem; /* Add bottom padding on narrow screens */
 }
 
 footer .footer-address {
@@ -475,6 +480,8 @@ footer .footer-logo img {
     flex-direction: row;
     justify-content: space-between; /* Address left, logo right on wide screens */
     align-items: center;
+    gap: 2rem; /* Restore larger gap on wide screens */
+    padding-bottom: 0; /* Remove bottom padding on wide screens */
   }
 
   footer .footer-address {
