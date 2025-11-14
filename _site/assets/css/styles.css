@@ -20,6 +20,9 @@ body {
   color: #333;
   background: #fff;
   min-width: 480px; /* Prevent page from contracting below 480px on narrow screens */
+  min-height: 100vh; /* Ensure body is at least viewport height */
+  display: flex; /* Enable flexbox for sticky footer */
+  flex-direction: column; /* Stack header, main, footer vertically */
 }
 
 .container{
@@ -264,6 +267,7 @@ header .main-menu a.active {
 main {
   width: 100%;
   padding-bottom: 2rem;
+  flex: 1; /* Grow to fill available space, pushing footer to bottom */
 }
 
 body.home main .container {
