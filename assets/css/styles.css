@@ -450,6 +450,7 @@ footer {
   background-color: #121212;
   color: #fff;
   width: 100%; /* Removed padding and margin-top */
+  box-shadow: 0 50vh 0 50vh #121212; /* Extend black background beyond footer without adding scroll */
 }
 
 footer .container {
