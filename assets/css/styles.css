@@ -399,7 +399,7 @@ aside {
 
 /* Headshot image */
 aside > img {
-  max-width: 332.5px; /* Limit headshot to 332.5px width */
+  max-width: 333px; /* Limit headshot to 333px width (rounded from 332.5px for cleaner code) */
   margin: 0 auto; /* Center the constrained image */
 }
 
