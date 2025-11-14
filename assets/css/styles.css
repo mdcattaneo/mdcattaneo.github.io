@@ -287,6 +287,12 @@ aside {
   text-align: center;
 }
 
+/* Headshot image */
+aside > img {
+  max-width: 332.5px; /* Limit headshot to 332.5px width */
+  margin: 0 auto; /* Center the constrained image */
+}
+
 aside h2 {
   margin-top: 1.5rem;
   font-size: 24px;
@@ -333,20 +339,44 @@ aside a[href*="cv"]:hover {
 footer {
   background-color: #121212;
   color: #fff;
-  width: 100%;
-  margin-top: 3rem;
+  width: 100%; /* Removed padding and margin-top */
 }
 
 footer .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
 }
+
+footer .footer-address {
+  text-align: center;
+}
+
+footer .footer-logo {
+  width: 100%;
+  max-width: 150px;
+}
+
+footer .footer-logo img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures logo is visible and responsive */
+}
+
 @media (min-width: 992px) {
   footer .container {
-    flex-direction: row; /* Align children horizontally */
-    justify-content: space-between; /* Push children to opposite ends */
-    align-items: center; /* Vertically center them */
+    flex-direction: row;
+    justify-content: space-between; /* Address left, logo right on wide screens */
+    align-items: center;
+  }
+
+  footer .footer-address {
+    text-align: left; /* Left-align address on wide screens */
+  }
+
+  footer .footer-logo {
+    max-width: 180px; /* Right-aligned logo size on wide screens */
   }
 }
 
@@ -360,10 +390,4 @@ footer a:hover {
 
 footer p {
   margin: 0.5rem 0;
-}
-
-footer img {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  max-width: 200px;
 }

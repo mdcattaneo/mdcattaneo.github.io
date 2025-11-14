@@ -1,1 +1,5 @@
 .DS_Store
+
+# Docker files for local development
+Dockerfile
+docker-compose.yml
