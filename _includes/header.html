@@ -9,7 +9,7 @@
   <label for="menu-toggle" class="menu-label" aria-label="Open navigation menu">MENU</label>
 
   <div class="navigation">
-  <label for="menu-toggle" class="menu-close">✕</label> <!-- Close button for mobile overlay -->
+  <label for="menu-toggle" class="menu-close" aria-label="Close menu">&times;</label> <!-- Close button for mobile overlay -->
   <nav aria-label="site">
     <ul role="list" class="main-menu">
     {% assign current_path = page.url | default: page.permalink %}
