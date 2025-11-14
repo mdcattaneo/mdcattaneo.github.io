@@ -21,7 +21,13 @@
   <div class="site-title">
   <h1><a href="/" title="Home" rel="home">Matias D. Cattaneo</a></h1>
   </div>
+
+  <!-- CSS-only mobile menu toggle -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" />
+  <label for="menu-toggle" class="menu-label" aria-label="Open navigation menu">Menu</label>
+
   <div class="navigation">
+  <label for="menu-toggle" class="menu-close" aria-label="Close menu">&times;</label> <!-- Close button for mobile overlay -->
   <nav aria-label="site">
     <ul role="list" class="main-menu">
     
@@ -246,18 +252,20 @@
 </main>
 <footer role="contentinfo" id="footer">
 <div class="container">
-  <div>
+  <div class="footer-address"> <!-- Left-aligned on wide screens -->
     <p>
       <a href="https://orfe.princeton.edu"><strong>Operations Research &amp; Financial Engineering</strong></a><br>
       Sherrerd Hall, Charlton St, Princeton, NJ 08544<br>
       609-258-0100
     </p>
   </div>
-  <div></div>
-  <a href="http://www.princeton.edu" title="Princeton University">
-    <img src="/assets/images/pu-logo-stacked-white.svg" alt="Princeton University" />
-  </a>
+  <div class="footer-logo"> <!-- Right-aligned on wide screens -->
+    <a href="https://www.princeton.edu" title="Princeton University">
+      <img src="/assets/images/pu-logo-stacked-white.svg" alt="Princeton University" />
+    </a>
+  </div>
 </div>
 </footer>
+
   </body>
 </html>

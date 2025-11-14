@@ -14,11 +14,12 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #333;
   background: #fff;
+  min-width: 480px; /* Prevent page from contracting below 480px on narrow screens */
 }
 
 .container{
@@ -51,10 +52,11 @@ header {
 }
 
 header h1 { /* Site title */
+  font-family: sofia-pro, sans-serif; /* Ensure consistent font on all screen sizes */
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  padding: 30px 0 0.5rem; /* Adjusted padding of site title for better alignment */
+  padding: 25px 0 0.5rem; /* Adjusted padding of site title for better alignment */
 }
 
 header h1 a {
@@ -67,25 +69,129 @@ header h1 a:hover {
   text-decoration: none;
 }
 
-/* This is the base rule for the nav, which works for mobile-first */
-header nav {
-  display: flex;
-  gap: 0.5rem;
+/* Hide the checkbox toggle input */
+.menu-toggle {
+  display: none; /* CSS-only menu using checkbox hack */
 }
 
-/* Mobile: main menu first, utility second */
+/* Mobile menu styles (< 992px) */
 @media (max-width: 991px) {
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow navigation to wrap to full width */
+  }
+
+  /* MENU label in top-right corner - matches site-title styling */
+  .menu-label {
+    order: 2; /* Position after site title */
+    color: #fff;
+    cursor: pointer;
+    font-family: sofia-pro, sans-serif; /* Match site-title font */
+    font-size: 32px; /* Match site-title size */
+    font-weight: 700; /* Match site-title weight */
+    letter-spacing: normal; /* Match site-title */
+    padding: 25px 0 0.5rem; /* Match site-title padding */
+    user-select: none;
+  }
+
+  .menu-label:hover {
+    color: #ccc; /* Hover effect */
+  }
+
+  /* Hide navigation by default on mobile */
+  .navigation {
+    display: none;
+    order: 3; /* Place below header */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #121212; /* Overlay background */
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 2rem; /* Padding for overlay content */
+  }
+
+  /* Show navigation when checkbox is checked */
+  .menu-toggle:checked ~ .navigation {
+    display: block; /* Show overlay menu */
+  }
+
+  /* Close button in top-right of overlay */
+  .menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .menu-close:hover {
+    color: #ccc; /* Hover effect for close button */
+  }
+
+  /* Vertical menu layout on mobile */
   header nav {
+    display: flex;
     flex-direction: column;
+    gap: 2rem;
+  }
+
+  header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Vertical menu items */
+    gap: 0;
+  }
+
+  header li {
+    border-bottom: 1px solid #333; /* Separator between items */
+  }
+
+  header li:last-child {
+    border-bottom: none; /* Remove border from last item */
+  }
+
+  header a {
+    display: block;
+    padding: 1rem 0; /* Larger touch targets */
+  }
+
+  /* Main menu first, then utility menu on mobile */
+  .main-menu {
+    order: 1; /* Main menu appears first */
+  }
+
+  .utility-menu {
+    order: 2; /* Utility menu appears second */
+    margin-top: 1rem;
+	font-size: 12px;
   }
 }
 
-@media (min-width: 992px) { /* On desktop: stack menus in column-reverse */
+/* Desktop menu styles (>= 992px) */
+@media (min-width: 992px) {
   header {
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1030;
+  }
+
+  /* Hide MENU label and close button on desktop */
+  .menu-label,
+  .menu-close {
+    display: none; /* Desktop uses horizontal navigation */
   }
 
   header .container {
@@ -94,30 +200,38 @@ header nav {
     align-items: center;
   }
 
-  /* Navigation children in column-reverse */
-  header nav {
-    display: flex; 
-    flex-direction: column-reverse; /* Stack menus vertically, utility on top */
-    align-items: flex-end; 
+  .navigation {
+    display: block; /* Always show on desktop */
   }
 
+  /* Navigation children in column-reverse */
+  header nav {
+    display: flex;
+    flex-direction: column-reverse; /* Stack menus vertically, utility on top */
+    align-items: flex-end;
+  }
 
   /* Add a small gap between the two stacked menus */
   header .main-menu {
-     margin-top: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Horizontal layout on desktop */
+  }
+  
+  .utility-menu {
+    margin-top: 5px;
+	font-size: 14px;
   }
 }
 
-
-header ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
+/* Link styles (both mobile and desktop) */
 header a {
   color: #fff;
   text-decoration: none;
@@ -155,23 +269,25 @@ main {
 body.home main .container {
   display: flex;
   flex-direction: column; /* This is the mobile-first (stacked) default */
-  gap: 2rem;
+  gap: 25px;
+  padding-top: 25px; /* Add spacing on narrow screens */
 }
 
 @media (min-width: 992px) {
 
   body.home main .container {
     flex-direction: row;
-    gap: 30px;
+    gap: 25px;
     padding-top: 25px;
   }
 
   body.home main .container > aside {
-    flex: 0 0 30%;
+    flex: 0 0 25%;
+    padding-top: 7px;
   }
 
   body.home main .container > article {
-    flex: 0 0 calc(70% - 30px);
+    flex: 0 0 calc(75% - 25px);
   }
 }
 
@@ -287,6 +403,12 @@ aside {
   text-align: center;
 }
 
+/* Headshot image */
+aside > img {
+  max-width: 333px; /* Limit headshot to 333px width (rounded from 332.5px for cleaner code) */
+  margin: 0 auto; /* Center the constrained image */
+}
+
 aside h2 {
   margin-top: 1.5rem;
   font-size: 24px;
@@ -333,20 +455,48 @@ aside a[href*="cv"]:hover {
 footer {
   background-color: #121212;
   color: #fff;
-  width: 100%;
-  margin-top: 3rem;
+  width: 100%; /* Removed padding and margin-top */
+  box-shadow: 0 50vh 0 50vh #121212; /* Extend black background beyond footer without adding scroll */
 }
 
 footer .container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  gap: 1rem; /* Reduced gap on narrow screens */
+  padding-bottom: 1rem; /* Add bottom padding on narrow screens */
 }
+
+footer .footer-address {
+  text-align: center;
+}
+
+footer .footer-logo {
+  width: 100%;
+  max-width: 150px;
+}
+
+footer .footer-logo img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures logo is visible and responsive */
+}
+
 @media (min-width: 992px) {
   footer .container {
-    flex-direction: row; /* Align children horizontally */
-    justify-content: space-between; /* Push children to opposite ends */
-    align-items: center; /* Vertically center them */
+    flex-direction: row;
+    justify-content: space-between; /* Address left, logo right on wide screens */
+    align-items: center;
+    gap: 2rem; /* Restore larger gap on wide screens */
+    padding-bottom: 0; /* Remove bottom padding on wide screens */
+  }
+
+  footer .footer-address {
+    text-align: left; /* Left-align address on wide screens */
+  }
+
+  footer .footer-logo {
+    max-width: 180px; /* Right-aligned logo size on wide screens */
   }
 }
 
@@ -360,9 +510,4 @@ footer a:hover {
 
 footer p {
   margin: 0.5rem 0;
-}
-
-footer img {
-  padding-top: 15px;
-  max-width: 200px;
 }

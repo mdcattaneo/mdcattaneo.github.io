@@ -175,6 +175,7 @@ header h1 a:hover {
   .utility-menu {
     order: 2; /* Utility menu appears second */
     margin-top: 1rem;
+	font-size: 12px;
   }
 }
 
@@ -222,6 +223,11 @@ header h1 a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem; /* Horizontal layout on desktop */
+  }
+  
+  .utility-menu {
+    margin-top: 5px;
+	font-size: 14px;
   }
 }
 
