@@ -92,7 +92,7 @@ header h1 a:hover {
     color: #fff;
     cursor: pointer;
     font-family: sofia-pro, sans-serif; /* Match site-title font */
-    font-size: 32px; /* Match site-title size */
+    font-size: 24px; /* Match site-title size */
     font-weight: 700; /* Match site-title weight */
     letter-spacing: normal; /* Match site-title */
     padding: 25px 0 0.5rem; /* Match site-title padding */
