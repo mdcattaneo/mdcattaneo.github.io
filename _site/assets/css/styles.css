@@ -43,7 +43,7 @@ body {
 }
 
 /* ======================================== */
-/* Header                                   */
+/* HEADER                                   */
 /* ======================================== */
 
 header {
@@ -104,10 +104,8 @@ header .main-menu a.active {
 }
 
 /* ======================================== */
-/* Header: Large display settings           */
+/* HEADER: Large display                    */
 /* ======================================== */
-
-/* Large display: menu styles */
 @media (min-width: 1090.1px) {
   header {
     position: sticky;
@@ -159,11 +157,9 @@ header .main-menu a.active {
   }
 }
 
-
 /* ======================================== */
-/* Header: Small display settings           */
+/* HEADER: Small display settings           */
 /* ======================================== */
-
 @media (max-width: 1090px) {
   header .container {
     display: flex;
@@ -259,7 +255,6 @@ header .main-menu a.active {
 
   header a {
     display: block;
-    /*padding: 1rem 0;  Larger touch targets */
   }
 
   /* Main menu first, then utility menu on mobile */
@@ -275,9 +270,9 @@ header .main-menu a.active {
 }
 
 
-/* ==================== */
-/* Main Content */
-/* ==================== */
+/* ======================================== */
+/* MAIN CONTENT                             */
+/* ======================================== */
 
 main {
   width: 100%;
@@ -285,33 +280,30 @@ main {
   flex: 1; /* Grow to fill available space, pushing footer to bottom */
 }
 
-body.home main .container {
-  display: flex;
-  flex-direction: column; /* This is the mobile-first (stacked) default */
-  gap: 25px;
-  padding-top: 25px; /* Add spacing on narrow screens */
-}
-
-/* Small display: Organize content */
-@media (min-width: 1090px) {
-  body.home main .container {
-    flex-direction: row;
-    gap: 25px;
-    padding-top: 25px;
-  }
-
-  body.home main .container > aside {
-    flex: 0 0 25%;
-    padding-top: 7px;
-  }
-
-  body.home main .container > article {
-    flex: 0 0 calc(75% - 25px);
-  }
-}
-
 main a {
   text-decoration: none;
+}
+
+body.home main .container {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  padding-top: 25px;
+}
+
+body.home main .container > aside {
+  flex: 0 0 25%;
+  padding-top: 7px;
+}
+
+
+/* ======================================== */
+/* MAIN CONTENT: Small display              */
+/* ======================================== */
+@media (max-width: 1090px) {
+  body.home main .container {
+    flex-direction: column;
+  }
 }
 
 /* ==================== */
@@ -467,10 +459,9 @@ aside a[href*="cv"]:hover {
   text-decoration: none;
 }
 
-/* ==================== */
-/* Footer */
-/* ==================== */
-
+/* ======================================== */
+/* FOOTER                                   */
+/* ======================================== */
 footer {
   background-color: #121212;
   color: #fff;
@@ -482,8 +473,8 @@ footer .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem; /* Reduced gap on narrow screens */
-  padding-bottom: 1rem; /* Add bottom padding on narrow screens */
+  gap: 16px; /* Reduced gap on narrow screens */
+  padding-bottom: 16px; /* Add bottom padding on narrow screens */
 }
 
 footer .footer-address {
@@ -501,25 +492,6 @@ footer .footer-logo img {
   display: block; /* Ensures logo is visible and responsive */
 }
 
-/* Small display: switch to centered row-wise footer */
-@media (min-width: 700px) {
-  footer .container {
-    flex-direction: row;
-    justify-content: space-between; /* Address left, logo right on wide screens */
-    align-items: center;
-    gap: 2rem; /* Restore larger gap on wide screens */
-    padding-bottom: 0; /* Remove bottom padding on wide screens */
-  }
-
-  footer .footer-address {
-    text-align: left; /* Left-align address on wide screens */
-  }
-
-  footer .footer-logo {
-    max-width: 180px; /* Right-aligned logo size on wide screens */
-  }
-}
-
 footer a {
   color: #fff;
 }
@@ -530,4 +502,27 @@ footer a:hover {
 
 footer p {
   margin: 0.5rem 0;
+}
+
+
+/* ======================================== */
+/* FOOTER: Small display                    */
+/* ======================================== */
+@media (min-width: 700px) {
+  /* Switch to centered row-wise footer */
+  footer .container {
+    flex-direction: row;
+    justify-content: space-between; /* Address left, logo right on wide screens */
+    align-items: center;
+    gap: 32px; /* Restore larger gap on wide screens */
+    padding-bottom: 0; /* Remove bottom padding on wide screens */
+  }
+
+  footer .footer-address {
+    text-align: left; /* Left-align address on wide screens */
+  }
+
+  footer .footer-logo {
+    max-width: 180px; /* Right-aligned logo size on wide screens */
+  }
 }
