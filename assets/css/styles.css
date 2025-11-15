@@ -1,6 +1,6 @@
-/* ==================== */
-/* Page-wide Styles     */
-/* ==================== */
+/* ======================================== */
+/* Page-wide Styles                         */
+/* ======================================== */
 
 * {
   box-sizing: border-box; /* Include padding and border in element's total width and height */
@@ -31,9 +31,9 @@ body {
   padding-inline: 25px; /* Horizontal padding for content area */ 
 }
 
-/* ==================== */
-/* Layout Variables     */
-/* ==================== */
+/* ======================================== */
+/* Layout Variables                         */
+/* ======================================== */
 
 :root {
   --layout-max-width: 1520px;
@@ -42,9 +42,9 @@ body {
   --princeton-blue: rgb(3, 42, 112);
 }
 
-/* ==================== */
-/* Header               */
-/* ==================== */
+/* ======================================== */
+/* Header                                   */
+/* ======================================== */
 
 header {
   background-color: #121212;
@@ -59,7 +59,7 @@ header h1 { /* Site title */
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  padding: 25px 0 0.5rem; /* Adjusted padding of site title for better alignment */
+  padding: 25px 0 8px; /* Adjusted padding of site title for better alignment */
 }
 
 header h1 a {
@@ -77,15 +77,107 @@ header h1 a:hover {
   display: none; /* CSS-only menu using checkbox hack */
 }
 
-/* Mobile menu styles (< 992px) */
-@media (max-width: 991px) {
+/* Link styles (both mobile and desktop) */
+header a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+header a:hover,
+header a:focus {
+  color: #ccc;
+  text-decoration: none;
+}
+
+/* Main menu active page and hover styling */
+header .main-menu a {
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s;
+}
+
+header .main-menu a:hover,
+header .main-menu a:focus,
+header .main-menu a.active {
+  border-bottom-color: var(--princeton-orange);
+  color: #fff;
+}
+
+/* ======================================== */
+/* Header: Large display settings           */
+/* ======================================== */
+
+/* Large display: menu styles */
+@media (min-width: 1090.1px) {
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  /* Hide MENU label and close button on desktop */
+  .menu-label,
+  .menu-close {
+    display: none; /* Desktop uses horizontal navigation */
+  }
+
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navigation {
+    display: block; /* Always show on desktop */
+  }
+
+  /* Navigation children in column-reverse */
+  header nav {
+    display: flex;
+    flex-direction: column-reverse; /* Stack menus vertically, utility on top */
+    align-items: flex-end;
+  }
+
+  /* Add a small gap between the two stacked menus */
+  header .main-menu {
+    margin-top: 8px;
+  }
+
+  header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Horizontal layout on desktop */
+  }
+  
+  .utility-menu {
+    margin-top: 5px;
+	font-size: 14px;
+  }
+}
+
+
+/* ======================================== */
+/* Header: Small display settings           */
+/* ======================================== */
+
+@media (max-width: 1090px) {
   header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap; /* Allow navigation to wrap to full width */
   }
-
+  
+  /* Reduce padding title */
+  header h1 {
+	padding: 0 0 0;
+	font-size: 24px;
+  }
+  
   /* MENU label in top-right corner - matches site-title styling */
   .menu-label {
     order: 2; /* Position after site title */
@@ -95,7 +187,7 @@ header h1 a:hover {
     font-size: 24px; /* Match site-title size */
     font-weight: 700; /* Match site-title weight */
     letter-spacing: normal; /* Match site-title */
-    padding: 25px 0 0.5rem; /* Match site-title padding */
+    /*padding: 25px 0 8px;  Match site-title padding */
     user-select: none;
   }
 
@@ -167,7 +259,7 @@ header h1 a:hover {
 
   header a {
     display: block;
-    padding: 1rem 0; /* Larger touch targets */
+    /*padding: 1rem 0;  Larger touch targets */
   }
 
   /* Main menu first, then utility menu on mobile */
@@ -182,83 +274,6 @@ header h1 a:hover {
   }
 }
 
-/* Desktop menu styles (>= 992px) */
-@media (min-width: 992px) {
-  header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1030;
-  }
-
-  /* Hide MENU label and close button on desktop */
-  .menu-label,
-  .menu-close {
-    display: none; /* Desktop uses horizontal navigation */
-  }
-
-  header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .navigation {
-    display: block; /* Always show on desktop */
-  }
-
-  /* Navigation children in column-reverse */
-  header nav {
-    display: flex;
-    flex-direction: column-reverse; /* Stack menus vertically, utility on top */
-    align-items: flex-end;
-  }
-
-  /* Add a small gap between the two stacked menus */
-  header .main-menu {
-    margin-top: 0.5em;
-  }
-
-  header ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem; /* Horizontal layout on desktop */
-  }
-  
-  .utility-menu {
-    margin-top: 5px;
-	font-size: 14px;
-  }
-}
-
-/* Link styles (both mobile and desktop) */
-header a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 0;
-}
-
-header a:hover,
-header a:focus {
-  color: #ccc;
-  text-decoration: none;
-}
-
-/* Main menu active page and hover styling */
-header .main-menu a {
-  border-bottom: 3px solid transparent;
-  transition: border-color 0.2s;
-}
-
-header .main-menu a:hover,
-header .main-menu a:focus,
-header .main-menu a.active {
-  border-bottom-color: var(--princeton-orange);
-  color: #fff;
-}
 
 /* ==================== */
 /* Main Content */
@@ -266,7 +281,7 @@ header .main-menu a.active {
 
 main {
   width: 100%;
-  padding-bottom: 2rem;
+  padding-bottom: 32px;
   flex: 1; /* Grow to fill available space, pushing footer to bottom */
 }
 
@@ -277,8 +292,8 @@ body.home main .container {
   padding-top: 25px; /* Add spacing on narrow screens */
 }
 
-@media (min-width: 992px) {
-
+/* Small display: Organize content */
+@media (min-width: 1090px) {
   body.home main .container {
     flex-direction: row;
     gap: 25px;
@@ -486,7 +501,8 @@ footer .footer-logo img {
   display: block; /* Ensures logo is visible and responsive */
 }
 
-@media (min-width: 992px) {
+/* Small display: switch to centered row-wise footer */
+@media (min-width: 700px) {
   footer .container {
     flex-direction: row;
     justify-content: space-between; /* Address left, logo right on wide screens */
