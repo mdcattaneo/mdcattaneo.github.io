@@ -19,7 +19,7 @@ body {
   line-height: 1.6;
   color: #333;
   background: #fff;
-  min-width: 480px; /* Prevent page from contracting below 480px on narrow screens */
+  min-width: 320px; /* Prevent page from contracting below 320px on narrow screens */
   min-height: 100vh; /* Ensure body is at least viewport height */
   display: flex; /* Enable flexbox for sticky footer */
   flex-direction: column; /* Stack header, main, footer vertically */
@@ -200,7 +200,8 @@ header .main-menu a.active {
     background-color: #121212; /* Overlay background */
     z-index: 9999;
     overflow-y: auto;
-    padding: 32px; /* Padding for overlay content */
+    padding: 20px; /* Reduced padding for narrow screens */
+    box-sizing: border-box; /* Include padding in width calculation */
   }
 
   /* Show navigation when checkbox is checked */
@@ -211,8 +212,8 @@ header .main-menu a.active {
   /* Close button in top-right of overlay */
   .menu-close {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 16px;
+    right: 16px;
     color: #fff;
     font-size: 32px;
     font-weight: 300;
@@ -392,8 +393,16 @@ aside {
 
 /* Headshot image */
 aside > img {
-  max-width: 333px; /* Limit headshot to 333px width (rounded from 332.5px for cleaner code) */
+  max-width: 100%; /* Allow image to scale down on small screens */
+  width: 100%; /* Make image fill container */
+  height: auto; /* Maintain aspect ratio */
   margin: 0 auto; /* Center the constrained image */
+}
+
+@media (min-width: 333px) {
+  aside > img {
+    max-width: 333px; /* Limit headshot to 333px width on larger screens */
+  }
 }
 
 aside h2 {
