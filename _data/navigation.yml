@@ -17,7 +17,7 @@ main:
     url: /service/
 utility:
   - title: CV
-    url: https://cattaneo.princeton.edu/cv/cattaneo-cv.pdf
+    url: https://mdcattaneo.github.io/cv/cattaneo-cv.pdf
     external: true
   - title: Google Scholar
     url: https://scholar.google.com/citations?user=TNdmZVEAAAAJ&hl=en
