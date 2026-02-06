@@ -170,20 +170,21 @@ header .main-menu a.active {
 	font-size: 24px;
   }
   
-  /* Button in top-right of overlay */
-  .menu-button {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+  /* MENU label in top-right corner - matches site-title styling */
+  .menu-label {
+    order: 2; /* Position after site title */
     color: #fff;
-    font-size: 32px;
-    font-weight: 300;
+    cursor: pointer;
+    font-family: Arial, sans-serif; /* Match site-title font */
+    font-size: 24px; /* Match site-title size */
+    font-weight: 700; /* Match site-title weight */
+    letter-spacing: normal; /* Match site-title */
+    /*padding: 25px 0 8px;  Match site-title padding */
     user-select: none;
-    line-height: 1;
   }
 
-  .menu-button:hover {
-    color: #ccc; /* Hover effect for button */
+  .menu-label:hover {
+    color: #ccc; /* Hover effect */
   }
 
   /* Hide navigation by default on mobile */
@@ -206,6 +207,23 @@ header .main-menu a.active {
   /* Show navigation when checkbox is checked */
   .menu-toggle:checked ~ .navigation {
     display: block; /* Show overlay menu */
+  }
+
+  /* Close button in top-right of overlay */
+  .menu-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .menu-close:hover {
+    color: #ccc; /* Hover effect for close button */
   }
 
   /* Vertical menu layout on mobile */
