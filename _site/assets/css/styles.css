@@ -7,14 +7,14 @@
 }
 
 html {
-  font-family: sofia-pro, sans-serif;
+  font-family: Arial, sans-serif;
   scroll-padding-top: 120px; /* To offset for sticky header when using anchor links */
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #333;
@@ -55,7 +55,7 @@ header {
 }
 
 header h1 { /* Site title */
-  font-family: sofia-pro, sans-serif; /* Ensure consistent font on all screen sizes */
+  font-family: Arial, sans-serif; /* Ensure consistent font on all screen sizes */
   font-size: 32px;
   font-weight: 700;
   margin: 0;
@@ -175,7 +175,7 @@ header .main-menu a.active {
     order: 2; /* Position after site title */
     color: #fff;
     cursor: pointer;
-    font-family: sofia-pro, sans-serif; /* Match site-title font */
+    font-family: Arial, sans-serif; /* Match site-title font */
     font-size: 24px; /* Match site-title size */
     font-weight: 700; /* Match site-title weight */
     letter-spacing: normal; /* Match site-title */
@@ -295,7 +295,7 @@ body.home main .container > aside {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-weight: 700;
   line-height: 1.2;
   margin-top: 24px;
@@ -356,7 +356,7 @@ article > p:first-child {
 a {
   color: var(--princeton-blue);
   text-decoration: none;
-  font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-weight: 600;
 }
 
