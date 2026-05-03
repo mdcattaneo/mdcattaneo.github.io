@@ -22,7 +22,7 @@
     <ul class="utility-menu">
     {% for item in site.data.navigation.utility %}
     <li>
-      <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener"{% endif %}>{{ item.title }}</a>
+      <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>
     </li>
     {% endfor %}
     </ul>

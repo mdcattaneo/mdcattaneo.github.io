@@ -1,14 +1,25 @@
+    {% assign page_title = page.title | default: site.title %}
+    {% assign meta_description = page.meta_description | default: site.description %}
+    {% assign canonical_path = page.canonical | default: page.url %}
+    {% if canonical_path contains '://' %}
+      {% assign canonical_url = canonical_path %}
+    {% else %}
+      {% assign canonical_url = canonical_path | absolute_url %}
+    {% endif %}
     <meta charset="utf-8" />
-    <meta name="description" content="{{ page.meta_description | default: site.description }}" />
-    <link rel="canonical" href="{{ page.canonical | default: page.url | relative_url }}" />
+    <meta name="description" content="{{ meta_description }}" />
+    <link rel="canonical" href="{{ canonical_url }}" />
     <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:description" content="{{ page.meta_description | default: site.description }}" />
+    <meta property="og:title" content="{{ page_title }}" />
+    <meta property="og:description" content="{{ meta_description }}" />
+    <meta property="og:url" content="{{ canonical_url }}" />
+    <meta property="og:type" content="website" />
     <meta name="Generator" content="Jekyll" />
     <meta name="MobileOptimized" content="width" />
     <meta name="HandheldFriendly" content="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>{{ page.title | default: site.title }}</title>
+    <title>{{ page_title }}</title>
     <link rel="stylesheet" href="https://use.typekit.net/vmz4vmm.css">
     <link rel="stylesheet" media="all" href="{{ '/assets/css/styles.css' | prepend: site.baseurl }}" />
 
