@@ -4,7 +4,7 @@ Website for Prof. Matias Cattaneo.  Updated via HTML, compiled via Jekyll, and s
 
 ## Structure
 
-- Top-level files like `index.html`, `publications.html`, `research.html` correspond to `/`, `/publications/`, and `/research/` respectively. 
+- Top-level files like `index.html` and `research.html` correspond to `/` and `/research/` respectively.
 - Each HTML file has YAML front-matter at the top for Jekyll to process.
 - Reusable fragments live in `_includes/`, e.g. header, footer, etc.
 - Page layouts are in `_layouts/`; the site only uses a single layout.

@@ -1,6 +1,4 @@
 main:
-  - title: Publications
-    url: /publications/
   - title: Research
     url: /research/
   - title: Software
