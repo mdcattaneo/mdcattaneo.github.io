@@ -20,14 +20,9 @@
     {% endfor %}
     </ul>
     <ul class="utility-menu">
-    {% assign cache_bust_version = site.time | date: '%Y%m%d%H%M%S' %}
     {% for item in site.data.navigation.utility %}
-    {% assign item_url = item.url %}
-    {% if item.cache_bust %}
-      {% assign item_url = item.url | append: '?v=' | append: cache_bust_version %}
-    {% endif %}
     <li>
-      <a href="{{ item_url }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>
+      <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>
     </li>
     {% endfor %}
     </ul>
