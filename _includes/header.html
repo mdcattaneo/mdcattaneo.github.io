@@ -4,12 +4,10 @@
   <h1><a href="{{ '/' | relative_url }}" title="Home" rel="home">{{ site.title }}</a></h1>
   </div>
 
-  <!-- CSS-only mobile menu toggle -->
-  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" autocomplete="off" />
-  <label for="menu-toggle" class="menu-button" aria-label="Open navigation menu">&#9776;</label>
+  <button type="button" id="menu-toggle" class="menu-button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">&#9776;</button>
 
-  <div class="navigation">
-  <label for="menu-toggle" class="menu-button" aria-label="Close menu">&times;</label> <!-- Close button for mobile overlay -->
+  <div class="navigation" id="site-navigation">
+  <button type="button" class="menu-button menu-close" aria-label="Close navigation menu">&times;</button>
   <nav aria-label="site">
     <ul role="list" class="main-menu">
     {% assign current_path = page.url | default: page.permalink %}

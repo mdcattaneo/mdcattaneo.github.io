@@ -72,9 +72,17 @@ header h1 a:hover {
   text-decoration: none;
 }
 
-/* Hide the checkbox toggle input */
-.menu-toggle {
-  display: none; /* CSS-only menu using checkbox hack */
+.menu-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+}
+
+.menu-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 /* Link styles (both mobile and desktop) */
@@ -112,8 +120,7 @@ header .main-menu a.active {
     z-index: 1030;
   }
 
-  /* Hide MENU label and close button on desktop */
-  .menu-button,
+  /* Hide mobile menu controls on desktop */
   .menu-button {
     display: none; /* Desktop uses horizontal navigation */
   }
@@ -214,7 +221,7 @@ header .main-menu a.active {
     line-height: 1;
   }
 
-  .menu-toggle:checked + .menu-button {
+  #menu-toggle[aria-expanded="true"] {
     display: none;
   }
 
@@ -258,8 +265,8 @@ header .main-menu a.active {
     line-height: 1;
   }
 
-  /* Show navigation when checkbox is checked */
-  .menu-toggle:checked ~ .navigation {
+  /* Show navigation when the menu button is expanded */
+  #menu-toggle[aria-expanded="true"] ~ .navigation {
     display: block; /* Show overlay menu */
   }
 
